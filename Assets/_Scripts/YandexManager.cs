@@ -46,6 +46,11 @@ SoundManager.instance.AdvOn();
         ShowAdv();
 #endif
     }
+    public void CloseFullScreenAdv()
+    {
+        SoundManager.instance.AdvOff();
+        GameReadyApiReady();
+    }
     public void AddCoins(int value)
     {
         SoundManager.instance.AdvOff();

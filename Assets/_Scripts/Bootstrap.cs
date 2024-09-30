@@ -17,6 +17,5 @@ public class Bootstrap : MonoBehaviour
         MarketMenu.Initialize();
         GameManager.Initialize(); // Load MainScene and Check for IsDesctop()
         LevelBuilder.Initialize(); // LoadScene
-        YandexManager.ysdk.GameReadyApiReady();
     }
 }

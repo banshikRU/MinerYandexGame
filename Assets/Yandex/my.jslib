@@ -56,7 +56,7 @@ mergeInto(LibraryManager.library, {
         ysdk.adv.showFullscreenAdv({
           callbacks: {
           onClose: function(wasShown) {
-            myGameInstance.SendMessage('YandexManager', 'CloseAdv');
+            myGameInstance.SendMessage('YandexManager', 'CloseFullScreenAdv');
         	},
           onError: function(error) {
         	}
@@ -140,13 +140,13 @@ mergeInto(LibraryManager.library, {
     }
 })
     },
-	GameReadyStart : function(){
+	GameReadyReady: function(){
     YaGames.init().then((ysdk) => {
         ysdk.features.LoadingAPI.ready()})
     },
-	GameReadyReady : function(){
+	GameReadyStart : function(){
 	YaGames.init().then((ysdk) => {
-        ysdk.features.GameplayAPI.ready()})
+        ysdk.features.GameplayAPI.start()})
     },
 	GameReadyStop : function(){
 	YaGames.init().then((ysdk) => {
