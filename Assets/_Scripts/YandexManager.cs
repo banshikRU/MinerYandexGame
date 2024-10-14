@@ -49,7 +49,9 @@ SoundManager.instance.AdvOn();
     public void CloseFullScreenAdv()
     {
         SoundManager.instance.AdvOff();
+#if !UNITY_EDITOR
         GameReadyApiReady();
+#endif
     }
     public void AddCoins(int value)
     {
@@ -111,14 +113,20 @@ SoundManager.instance.AdvOn();
     }
     public void GameReadyApiReady()
     {
+#if !UNITY_EDITOR
         GameReadyReady();
+#endif
     }
     public void GameReadyApiStart()
     {
+#if !UNITY_EDITOR
         GameReadyStart();
+#endif
     }
     public void GameReadyApiStop()
     {
+#if !UNITY_EDITOR
         GameReadyStop();
+#endif
     }
 }
