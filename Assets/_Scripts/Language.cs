@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class LanguageSwitch : UnityEvent<string> {}
-public class Language : MonoBehaviour
+public class Language : Singleton<Language>
 {
     private string _curentLanguage;
     public static Language instance;
@@ -12,27 +12,15 @@ public class Language : MonoBehaviour
 
     public string CurentLanguage { get => _curentLanguage; set => _curentLanguage = value; }
 
-    private void Awake()
+    protected override void OnInit()
     {
-        if (instance == null)
-        {
-            if (lanSwitch == null)
-            {
-                lanSwitch = new LanguageSwitch();
-            }
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-       
+        base.OnInit();
+        lanSwitch = new LanguageSwitch();
     }
     public void Initialize()
     {
     #if !UNITY_EDITOR
-        CurentLanguage = YandexManager.ysdk.GetLanguage();
+       CurentLanguage = YandexManager.ysdk.GetLanguage();
     #endif
     }
     public void LanguageSwitch()

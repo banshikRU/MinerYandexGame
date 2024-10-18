@@ -109,24 +109,24 @@ SoundManager.instance.AdvOn();
     }
     public void RateGame()
     {
-        RateGameExt();
+       // RateGameExt();
     }
     public void GameReadyApiReady()
     {
-#if !UNITY_EDITOR
-        GameReadyReady();
-#endif
+
+       //GameReadyReady();
+
     }
     public void GameReadyApiStart()
     {
-#if !UNITY_EDITOR
-        GameReadyStart();
-#endif
+
+//GameReadyStart();
+
     }
     public void GameReadyApiStop()
     {
-#if !UNITY_EDITOR
-        GameReadyStop();
-#endif
+
+       // GameReadyStop();
+
     }
 }

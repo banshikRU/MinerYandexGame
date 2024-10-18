@@ -411,6 +411,7 @@ PlayerSettings:
     IGB_GAME_DISTRIBUTION_GAME_ID: 
     IGB_VK_PLAY_GAME_ID: 
     LOCK_ASPECT_RATIO: all
+    PRODUCT_DESCRIPTION: 
     WORKER_FILENAME: 
     YG_BANNER_DYNAMIC_1: 
     YG_BANNER_DYNAMIC_2: 
@@ -668,7 +669,7 @@ PlayerSettings:
   webGLDebugSymbols: 2
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:AT2.1.0
+  webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -683,7 +684,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    WebGL: YSDK
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

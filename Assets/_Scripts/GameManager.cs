@@ -3,13 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
     [SerializeField] private SmothMovement _smoth;
     [SerializeField] private ScoreManager _scoreManager;
     public bool _isPlay;
     public void Initialize()
     {
-        AdsControl();
+      //  AdsControl();
         CheckForFirstTraining();
         Time.timeScale = 0f;
         _isPlay = false;
@@ -18,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        YandexManager.ysdk.GameReadyApiStart();
+       // YandexManager.ysdk.GameReadyApiStart();
         PlayCountIterator.instance.CounterUpdater();
         if (PlayerPrefs.GetInt("FirstTraining") == 1)
         {
