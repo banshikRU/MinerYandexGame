@@ -7,7 +7,6 @@ public class LanguageSwitch : UnityEvent<string> {}
 public class Language : Singleton<Language>
 {
     private string _curentLanguage;
-    public static Language instance;
     public static LanguageSwitch lanSwitch;
 
     public string CurentLanguage { get => _curentLanguage; set => _curentLanguage = value; }

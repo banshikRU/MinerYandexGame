@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Language.instance.LanguageSwitch();
+        Language.Instance.LanguageSwitch();
     }
     private void Start()
     {

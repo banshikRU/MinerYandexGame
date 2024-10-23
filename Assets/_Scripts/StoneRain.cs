@@ -17,7 +17,7 @@ public class StoneRain : MonoBehaviour
     }
     private void OnEnable()
     {
-        Language.instance.LanguageSwitch();
+        Language.Instance.LanguageSwitch();
         StartCoroutine(StoneRainn());
     }
     IEnumerator StoneRainn()

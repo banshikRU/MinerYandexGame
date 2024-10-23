@@ -20,12 +20,12 @@ public class SettingMenu : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (Language.instance.CurentLanguage == "ru")
+        if (Language.Instance.CurentLanguage == "ru")
         {
             _russianLanButton.interactable = false;
             _englishLanButton.interactable = true;
         }
-        else if (Language.instance.CurentLanguage == "eng")
+        else if (Language.Instance.CurentLanguage == "eng")
         {
             _russianLanButton.interactable = true;
             _englishLanButton.interactable = false;
@@ -63,15 +63,15 @@ public class SettingMenu : MonoBehaviour
     }
     public void SwitchLanguageRus()
     {
-        Language.instance.CurentLanguage = "ru";
-        Language.instance.LanguageSwitch();
+        Language.Instance.CurentLanguage = "ru";
+        Language.Instance.LanguageSwitch();
         _russianLanButton.interactable = false;
         _englishLanButton.interactable = true;
     }
     public void SwitchLanguageEng()
     {
-        Language.instance.CurentLanguage = "eng";
-        Language.instance.LanguageSwitch();
+        Language.Instance.CurentLanguage = "eng";
+        Language.Instance.LanguageSwitch();
         _russianLanButton.interactable = true;
         _englishLanButton.interactable = false;
     }

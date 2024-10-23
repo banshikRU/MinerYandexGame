@@ -26,7 +26,7 @@ public class LocalizationText : MonoBehaviour
     }
     private void OnEnable()
     {
-        Language.instance.LanguageSwitch();
+        Language.Instance.LanguageSwitch();
     }
 
 }

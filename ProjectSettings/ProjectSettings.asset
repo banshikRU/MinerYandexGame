@@ -399,10 +399,8 @@ PlayerSettings:
     CUSTOMIZE_LOADING_SCREEN_BACKGROUND: backgroundColor = "#000000"
     CUSTOMIZE_LOGO: display = "none"
     CUSTOM_EVENT_IN_CSS: 
-    CUSTOM_EVENT_IN_HTML: <script src="https://yandex.ru/games/sdk/v2"></script>
-    CUSTOM_EVENT_IN_JS: var lb; YaGames.init().then(ysdk=>{console.log("Yandex SDK
-      initialized");window.ysdk=ysdk;ysdk.getLeaderboards().then(_lb => lb = _lb);});
-      ATinstanceEnable(function(){if(document.visibilityState==="visible"){window.ATinstance.SendMessage("AT","PageVisible")}else{window.ATinstance.SendMessage("AT","PageNotVisible")}document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){window.ATinstance.SendMessage("AT","PageVisible")}else{window.ATinstance.SendMessage("AT","PageNotVisible")}})});
+    CUSTOM_EVENT_IN_HTML: 
+    CUSTOM_EVENT_IN_JS: 
     DISABLE_CONSOLE_MESSAGES: 
     GP_GAMEREADY_AUTOCALL_DELAY: 
     GP_PROJECT_ID: 
@@ -669,7 +667,7 @@ PlayerSettings:
   webGLDebugSymbols: 2
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: PROJECT:AT2.1.0
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
