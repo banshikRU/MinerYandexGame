@@ -18,6 +18,10 @@ public abstract class IAmBlock : MonoBehaviour
         _canvas = GameObject.FindObjectOfType<Canvas>().gameObject;
         _myCurentEnduranceBar = null;
     }
+    public virtual void Init()
+    {
+
+    }
     private void FixedUpdate()
     {
         if (isHitMe == true)

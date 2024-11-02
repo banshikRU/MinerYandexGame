@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffManager: MonoBehaviour
+public class BuffManager: Singleton<BuffManager>
 {
-    public static BuffManager instance;
-    private void Start()
-    {
-        instance = this;
-    }
     private bool _isExtraDamageActive;
     private bool _isExtraDefenderActive;
     private bool _isExtraExtractionActive;

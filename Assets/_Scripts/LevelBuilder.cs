@@ -9,9 +9,9 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] private List<GameObject> _wallTiles;
     private Queue<GameObject> _generatedWalls = new Queue<GameObject>();   
     [SerializeField] private List<GameObject> _floorTiles;
-    [SerializeField] private List<GameObject> _ores;
-    [SerializeField] private List<GameObject> _buffs;
-    private int _curentLevel;
+    [SerializeField] private List<GameObject> _oresTiles;
+    [SerializeField] private List<IAmBlock> _buffsTiles;
+    private int _currentGeneratingLevel;
     private float _strongBlockMin;
     private float _strongBlockMax;
     private float _minOresSpawn;
@@ -19,7 +19,7 @@ public class LevelBuilder : MonoBehaviour
     private float _maxRareOresSpawn;
     public static BuildNewLevel BuildNewLevel = new BuildNewLevel();
 
-    public int CurentLevel { get => _curentLevel; set => _curentLevel = value; }
+    public int CurentLevel { get => _currentGeneratingLevel; set => _currentGeneratingLevel = value; }
 
     public void Initialize()
     {
@@ -50,9 +50,9 @@ public class LevelBuilder : MonoBehaviour
         {
             _minRareOresSpawn = 1;
         }
-        if (_maxRareOresSpawn >= _ores.Count)
+        if (_maxRareOresSpawn >= _oresTiles.Count)
         {
-            _maxRareOresSpawn = _ores.Count;
+            _maxRareOresSpawn = _oresTiles.Count;
         }
         if (_minOresSpawn >= 40)
         {
@@ -69,7 +69,7 @@ public class LevelBuilder : MonoBehaviour
             {
                 if (Random.Range(_minOresSpawn,100)>80)
                 {
-                    Instantiate(_ores[Random.Range(0 + (int)Random.Range(0, _minRareOresSpawn), (int)_maxRareOresSpawn)], new Vector3(x, transform.position.y, 0), Quaternion.identity);
+                    Instantiate(_oresTiles[Random.Range(0 + (int)Random.Range(0, _minRareOresSpawn), (int)_maxRareOresSpawn)], new Vector3(x, transform.position.y, 0), Quaternion.identity);
                 }
                 else
                 {
@@ -77,14 +77,8 @@ public class LevelBuilder : MonoBehaviour
                 }
             }
         }
-        if (Random.Range(0, 100) > 95)
-        {
-            int x = Random.Range(-1, 4);
-            RaycastHit2D hit = Physics2D.Raycast(new Vector2(x,transform.position.y), Vector2.zero, Mathf.Infinity);
-            Destroy(hit.transform.gameObject);
-            Instantiate(_buffs[Random.Range(0, _buffs.Count)], new Vector3(x, transform.position.y, 0), Quaternion.identity);
-        }
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y-1, 0);
+        GenerateBuffTile();
+        ChangeGeneratorPosition();
 
     }
     private void CheckGeneratedWallCount(GameObject wall)
@@ -94,5 +88,20 @@ public class LevelBuilder : MonoBehaviour
         {
             Destroy(_generatedWalls.Dequeue());
         }
+    }
+    private void GenerateBuffTile()
+    {
+        if (Random.Range(0, 100) > 95)
+        {
+            int x = Random.Range(-1, 4);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(x, transform.position.y), Vector2.zero, Mathf.Infinity);
+            Destroy(hit.transform.gameObject);
+            IAmBlock _spawnedBlock = Instantiate(_buffsTiles[Random.Range(0, _buffsTiles.Count)], new Vector3(x, transform.position.y, 0), Quaternion.identity);
+            _spawnedBlock.Init();
+        }
+    }
+    private void ChangeGeneratorPosition()
+    {
+        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
     }
 }

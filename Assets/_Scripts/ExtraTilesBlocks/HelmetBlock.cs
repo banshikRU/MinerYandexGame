@@ -1,21 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+using System;
 public class HelmetBlock : IAmBlock
 {
-    HeartManager _heartManager;
-    SmothMovement _playerMover;
     public override void DestroyMe()
     {
         base.DestroyMe();
-        _playerMover = FindObjectOfType<SmothMovement>();
-        _heartManager = FindObjectOfType<HeartManager>();
-        BuffManager.instance.IsExtraDefenderActive = true;
-        if(!BuffManager.instance.IsKnightActive && !BuffManager.instance.IsPirateActive)
+        BuffManager.Instance.IsExtraDefenderActive = true;
+        if(!BuffManager.Instance.IsKnightActive && !BuffManager.Instance.IsPirateActive)
         {
-            _playerMover.SetAnimatorHelmet();
+            AnimationController.Instance.SetAnimatorHelmet();
         }
-        _heartManager._extraHelmetHeart.SetActive(true);
+        HeartManager.Instance._extraHelmetHeart.SetActive(true);
     }
 }

@@ -84,7 +84,7 @@ public class MarketMenu : MonoBehaviour
     public void SetAnimatorPirate(int value)
     {
         _smothMovement.SetAnimatorPirate();
-        BuffManager.instance.IsPirateActive = true;
+        BuffManager.Instance.IsPirateActive = true;
         ResetSkin(_secondSkin);
         //PlayerProgress.instance.playerInfo.isFirstScinBuy = true;
         //PlayerProgress.instance.Save();
@@ -96,7 +96,7 @@ public class MarketMenu : MonoBehaviour
     {
 
         _smothMovement.SetAnimatorKnight();
-        BuffManager.instance.IsKnightActive = true;
+        BuffManager.Instance.IsKnightActive = true;
         ResetSkin(_firstSkin);
         //PlayerProgress.instance.playerInfo.isSecondScinBuy = true;
         //PlayerProgress.instance.Save();
@@ -106,7 +106,7 @@ public class MarketMenu : MonoBehaviour
     }
     public void SetMegaPickaxe(int value)
     {
-        BuffManager.instance.IsMegaPickaxeActive = true;
+        BuffManager.Instance.IsMegaPickaxeActive = true;
         //PlayerProgress.instance.playerInfo.isThirdScinBuy = true;
         //PlayerProgress.instance.Save();
         PlayerPrefs.SetInt("ThirdScinBuy", 1);

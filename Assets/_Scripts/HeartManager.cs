@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 public class HitMe : UnityEvent<int,bool> { }
-public class HeartManager : MonoBehaviour
+public class HeartManager : Singleton<HeartManager> 
 {
     [SerializeField] private SmothMovement _playerMover;
     public static HitMe hitMeInstance = new HitMe();
@@ -31,14 +31,14 @@ public class HeartManager : MonoBehaviour
     {
         _playerMover.HitMe();
         SoundManager.instance.PlaySingle(_playerTakeHit);
-        if (BuffManager.instance.IsExtraDefenderActive && isRockAttack)
+        if (BuffManager.Instance.IsExtraDefenderActive && isRockAttack)
         {
-            if (!BuffManager.instance.IsKnightActive && !BuffManager.instance.IsPirateActive)
+            if (!BuffManager.Instance.IsKnightActive && !BuffManager.Instance.IsPirateActive)
             {
                 _playerMover.SetAnimatorWithoutHelmet();
             }
             _extraHelmetHeart.SetActive(false);
-            BuffManager.instance.IsExtraDefenderActive = false;
+            BuffManager.Instance.IsExtraDefenderActive = false;
         }
         else
         {

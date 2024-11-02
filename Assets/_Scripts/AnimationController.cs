@@ -1,15 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using AnimatorController = UnityEngine.RuntimeAnimatorController;
 
-public class AnimationController : MonoBehaviour
+public class AnimationController : Singleton<AnimationController>
 {
+    public static event Action OnHelmet;
+    public static event Action WithoutHelmet;
+    public static event Action OnPirate;
+    public static event Action OnKnight;
+
     [SerializeField] private AnimatorController _withHelmet;
     [SerializeField] private AnimatorController _withoutHelmet;
     [SerializeField] private AnimatorController _pirate;
     [SerializeField] private AnimatorController _knight;
 
+    [SerializeField] private Animator _playerAnimator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     public void SetAnimatorHelmet()
     {
         _playerAnimator.runtimeAnimatorController = _withHelmet;
